@@ -1,0 +1,13 @@
+﻿.complete {
+    color: grey;
+    font-style: italic;
+    text-decoration: line-through;
+}
+
+.margin-top-50 {
+    margin-top: 50px;
+}
+
+.row{
+    margin:0;   
+}
