@@ -2,7 +2,11 @@
   "name": "asp.net",
   "private": true,
   "dependencies": {
-    "angular": "^1.5.8",
+    "angular": "1.5.x",
+    "angular-route": "1.5.x",
     "bootstrap": "^3.3.7"
+  },
+  "resolutions": {
+    "angular": "1.5.x"
   }
 }
