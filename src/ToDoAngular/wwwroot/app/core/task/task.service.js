@@ -1,10 +1,8 @@
-﻿/// <reference path="../lib/angular/angular.js" />
-
-(function () {
+﻿(function () {
     'use strict';
 
     angular
-        .module('todoApp')
+        .module('core.task')
         .service('TodoService', TodoService);
 
     TodoService.$inject = ['$http'];
@@ -51,7 +49,7 @@
             return $http(
                {
                    method: 'DELETE',
-                   url: apiUrl                   
+                   url: apiUrl
                });
         }
 

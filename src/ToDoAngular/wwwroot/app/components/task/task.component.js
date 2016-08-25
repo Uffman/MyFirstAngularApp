@@ -1,17 +1,18 @@
-﻿/// <reference path="../lib/angular/angular.js" />
-
-(function () {
+﻿(function() {
     'use strict';
 
-    angular
-        .module('todoApp')
-        .controller('TodoController', TodoController);
+    angular.
+        module('taskList').
+        component('taskList', {
+            templateUrl: 'app/components/task/task.template.html',
+            controller: TodoController
+        });
 
     TodoController.$inject = ['TodoService'];
 
     function TodoController(TodoService) {
-
         var self = this;
+
         self.title = 'My First Angular App';
         self.todo = {};
         self.todos = [];
@@ -20,7 +21,7 @@
         }
 
         function getTodos() {
-            TodoService.getTodos().success(function (response) {               
+            TodoService.getTodos().success(function (response) {
                 self.todos = response;
             });
         }
@@ -30,21 +31,21 @@
                 name: self.todo.name,
                 isComplete: self.todo.isComplete
             };
-           
+
             TodoService.create(todo).then(function () {
                 self.todo.name = "";
                 getTodos();
             });
         }
-        
-        function remove(id) {           
+
+        function remove(id) {
             TodoService.remove(id).then(function () {
                 getTodos();
             });
         }
 
-        function update(todo) {            
-            TodoService.update(todo).then(function () {               
+        function update(todo) {
+            TodoService.update(todo).then(function () {
             });
         }
 
@@ -57,7 +58,8 @@
         self.create = create;
         self.update = update;
         self.remove = remove;
-        self.removeAll = removeAll
+        self.removeAll = removeAll;
         getTodos();
     }
+
 })();
